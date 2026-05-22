@@ -19,5 +19,4 @@ next-env.d.ts
 
 # Project artifacts
 /linkedin.pdf
-/resume.pdf
 /.playwright-mcp/
