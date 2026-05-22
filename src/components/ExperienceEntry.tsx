@@ -18,7 +18,7 @@ export default function ExperienceEntry({ entry }: Props) {
           {entry.url ? (
             <a
               href={entry.url}
-              className="font-semibold text-sm text-gray-900 hover:text-blue-700 transition-colors"
+              className="font-semibold text-sm text-teal-700 hover:text-teal-900 transition-colors"
             >
               {entry.company}
             </a>
@@ -31,18 +31,11 @@ export default function ExperienceEntry({ entry }: Props) {
         <span className="text-gray-400 text-xs whitespace-nowrap shrink-0">{entry.period}</span>
       </div>
 
-      {entry.bullets.length === 1 ? (
-        <p className="text-sm text-gray-700 mt-0.5 leading-snug">{entry.bullets[0]}</p>
-      ) : (
-        <ul className="mt-0.5 space-y-0.5">
-          {entry.bullets.map((bullet, i) => (
-            <li key={i} className="text-sm text-gray-700 leading-snug flex gap-2">
-              <span className="text-gray-300 shrink-0 select-none mt-px">·</span>
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="mt-0.5 space-y-0.5">
+        {entry.bullets.map((bullet, i) => (
+          <p key={i} className="text-sm text-gray-700 leading-snug">{bullet}</p>
+        ))}
+      </div>
     </div>
   );
 }

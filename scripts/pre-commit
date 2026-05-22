@@ -1,0 +1,21 @@
+#!/bin/sh
+# Regenerate resume.pdf if any source files changed
+
+CHANGED=$(git diff --cached --name-only | grep -E '^src/')
+
+if [ -z "$CHANGED" ]; then
+  exit 0
+fi
+
+echo "Resume source changed — regenerating PDF..."
+
+node scripts/export-pdf.mjs
+
+if [ $? -eq 0 ]; then
+  git add resume.pdf
+  echo "resume.pdf staged."
+else
+  echo "Warning: PDF generation failed. Committing without updated PDF."
+fi
+
+exit 0

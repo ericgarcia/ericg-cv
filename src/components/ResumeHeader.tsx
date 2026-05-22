@@ -14,22 +14,25 @@ interface Props {
 export default function ResumeHeader({ name, title, contact }: Props) {
   return (
     <header>
-      <h1 className="font-serif text-[2rem] leading-tight text-gray-900 print:text-[22pt]">
+      <h1 className="[font-family:var(--font-raleway)] text-[2rem] leading-tight text-white print:text-[22pt] print:text-gray-900">
         {name}
       </h1>
-      <p className="text-gray-500 text-sm mt-0.5">{title}</p>
-      <div className="flex flex-wrap gap-x-3 text-xs text-gray-500 mt-2">
-        <a href={`mailto:${contact.email}`} className="hover:text-blue-700 transition-colors">
-          {contact.email}
-        </a>
-        <span className="select-none">·</span>
-        <span>{contact.phone}</span>
-        <span className="select-none">·</span>
-        <span>{contact.location}</span>
-        <span className="select-none">·</span>
-        <a href={contact.linkedin.url} className="hover:text-blue-700 transition-colors">
-          {contact.linkedin.label}
-        </a>
+      <p className="text-white/80 text-sm mt-0.5 print:text-gray-500">{title}</p>
+      <div className="flex flex-col gap-0.5 mt-2">
+        <div className="flex flex-wrap gap-x-3 text-xs text-white/70 print:text-gray-500">
+          <a href={`mailto:${contact.email}`} className="hover:text-white transition-colors print:text-gray-500">
+            {contact.email}
+          </a>
+          <span className="select-none text-white/40">·</span>
+          <span>{contact.phone}</span>
+          <span className="select-none text-white/40">·</span>
+          <span>{contact.location}</span>
+        </div>
+        <div>
+          <a href={contact.linkedin.url} className="text-xs text-white/70 hover:text-white transition-colors print:text-gray-500">
+            {contact.linkedin.label}
+          </a>
+        </div>
       </div>
     </header>
   );
