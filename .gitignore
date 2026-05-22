@@ -1,0 +1,23 @@
+# Dependencies
+/node_modules
+
+# Next.js
+/.next/
+/out/
+
+# Misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# Local env files
+.env*.local
+
+# TypeScript (auto-generated)
+*.tsbuildinfo
+next-env.d.ts
+
+# Project artifacts
+/linkedin.pdf
+/resume.pdf
+/.playwright-mcp/
